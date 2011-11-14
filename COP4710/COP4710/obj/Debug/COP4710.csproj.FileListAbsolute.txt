@@ -1,0 +1,28 @@
+C:\Users\Tom\abasis-database-project\COP4710\COP4710\bin\COP4710.dll
+C:\Users\Tom\abasis-database-project\COP4710\COP4710\bin\COP4710.pdb
+C:\Users\Tom\abasis-database-project\COP4710\COP4710\bin\EntityFramework.dll
+C:\Users\Tom\abasis-database-project\COP4710\COP4710\bin\EntityFramework.xml
+C:\Users\Tom\abasis-database-project\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Tom\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.dll
+C:\Users\Tom\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.pdb
+F:\School\Database\Site\COP4710\COP4710\bin\COP4710.dll
+F:\School\Database\Site\COP4710\COP4710\bin\COP4710.pdb
+F:\School\Database\Site\COP4710\COP4710\bin\EntityFramework.dll
+F:\School\Database\Site\COP4710\COP4710\bin\EntityFramework.xml
+F:\School\Database\Site\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
+F:\School\Database\Site\COP4710\COP4710\obj\Debug\COP4710.dll
+F:\School\Database\Site\COP4710\COP4710\obj\Debug\COP4710.pdb
+H:\School\Database\Site\COP4710\COP4710\bin\COP4710.dll
+H:\School\Database\Site\COP4710\COP4710\bin\COP4710.pdb
+H:\School\Database\Site\COP4710\COP4710\bin\EntityFramework.dll
+H:\School\Database\Site\COP4710\COP4710\bin\EntityFramework.xml
+H:\School\Database\Site\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
+H:\School\Database\Site\COP4710\COP4710\obj\Debug\COP4710.dll
+H:\School\Database\Site\COP4710\COP4710\obj\Debug\COP4710.pdb
+C:\Documents and Settings\mmolina\My Documents\Downloads\COP4710\COP4710\COP4710\bin\COP4710.dll
+C:\Documents and Settings\mmolina\My Documents\Downloads\COP4710\COP4710\COP4710\bin\COP4710.pdb
+C:\Documents and Settings\mmolina\My Documents\Downloads\COP4710\COP4710\COP4710\bin\EntityFramework.dll
+C:\Documents and Settings\mmolina\My Documents\Downloads\COP4710\COP4710\COP4710\bin\EntityFramework.xml
+C:\Documents and Settings\mmolina\My Documents\Downloads\COP4710\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\mmolina\My Documents\Downloads\COP4710\COP4710\COP4710\obj\Debug\COP4710.dll
+C:\Documents and Settings\mmolina\My Documents\Downloads\COP4710\COP4710\COP4710\obj\Debug\COP4710.pdb

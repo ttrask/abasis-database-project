@@ -1,0 +1,230 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="Header">
+    <div class="PageTitle">
+        Form Input
+    </div>
+    <div style="float: right; display: inline;">
+        @{Html.RenderAction("AccountBar", "Account", new { });}
+    </div>
+</div>
+<hr id="pageSeperator" />
+<div class="Main" id="Main">
+    <div class="Sidebar" id="sidebar">
+        <ul id="sidebarLinks">
+            <li id="GeneralInfo">General Info</li>
+            <li id="ComplainantInfo">Complainant Info</li>
+            <li id="CrashInfo">Crash Info</li>
+            <li id="DispatchInfo">Dispatch Info</li>
+            <li id="Alerts">Alerts</li>
+            <li id="MedicalDetails">Medical Details</li>
+            <li id="MedicalControls">Medical Controls</li>
+        </ul>
+        <hr />
+        <button id="Submit" disabled="disabled">
+            Submit</button>
+    </div>
+    <div class="Content" id="content">
+        <div id="Content-GeneralInfo" class="Section" linktext="General Info">
+            <div class="Header">
+                General Information
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Date
+                </div>
+                <div class="Input">
+                    <input class="date" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Time
+                </div>
+                <div class="Input">
+                    <input class="Hour" />
+                    :
+                    <input class="Minute" />
+                    <ul class="select">
+                        <li tabindex="1">AM</li>|
+                        <li tabindex="2">PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Unit #
+                </div>
+                <div class="Input">
+                    <input class="textbox" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    County
+                </div>
+                <div class="Input">
+                    <input class="textbox" />
+                </div>
+            </div>
+        </div>
+        <div id="ComplainantInfo" class="Section" linktext="Complainant Info">
+            <div class="Header">
+                Complainant Information
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Age
+                </div>
+                <div class="Input">
+                    <input class="textbox" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Sex
+                </div>
+                <div class="Input">
+                    <select class="select">
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    A&O X
+                </div>
+                <div class="Input">
+                    <input class="textbox" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Chief Complaint
+                </div>
+                <div class="Input">
+                    <textarea class="textbox"></textarea>
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Blood Pressure
+                </div>
+                <div class="Input">
+                    <input class="BP" />
+                    /
+                    <input class="BP" />
+                </div>
+                <span class="seperator">|</span>
+                <div class="Input">
+                    <input class="BP" />
+                    /
+                    <input class="BP" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Pulse
+                </div>
+                <div class="Input">
+                    <input class="textbox short" />
+                    <span class="seperator">|</span>
+                    <input class="textbox short" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Respirations
+                </div>
+                <div class="Input">
+                    <input class="textbox short" />
+                    <span class="seperator">|</span>
+                    <input class="textbox short" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    O2 Saturation
+                </div>
+                <div class="Input">
+                    <input class="textbox short" />% <span class="seperator">|</span>
+                    <input class="textbox short" />%
+                </div>
+                <div class="Input">
+                </div>
+            </div>
+        </div>
+        <div id="CrashInfo" class="Section">
+            <div class="Header">
+                Crash Information
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Driver
+                </div>
+                <div class="Input">
+                    <select id="Driver">
+                        <option>Unrestrained </option>
+                        <option>Restrained</option>
+                    </select>
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Passeneger
+                </div>
+                <div class="Input">
+                    <select id="PassenegerLocation">
+                        <option>Front </option>
+                        <option>Rear</option>
+                    </select>
+                    <span class="seperator">|</span>
+                    <select id="Passenger">
+                        <option>Unrestrained </option>
+                        <option>Restrained</option>
+                    </select>
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Speed
+                </div>
+                <div class="Input">
+                    <input class="textbox" />
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Condition
+                </div>
+                <div class="Input">
+                    <ul class="select">
+                        <li>Ejected</li>|
+                        <li>Entrapped</li>|
+                        <li>Rollover</li></ul>
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Helmet
+                </div>
+                <div class="Input">
+                    <ul class="select">
+                        <li>Yes</li>|
+                        <li>No</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Speed
+                </div>
+                <div class="Input">
+                    <input class="textbox" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

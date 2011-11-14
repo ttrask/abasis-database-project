@@ -1,324 +1,367 @@
-﻿/*----------------------------------------------------------
-The base color for this template is #5c87b2. If you'd like
-to use a different color start by replacing all instances of
-#5c87b2 with your new color.
-----------------------------------------------------------*/
-body {
-    background-color: #5c87b2;
-    font-size: .85em;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+﻿/*
+Base Universal Style
+*/
+
+body
+{
+    font-family: Arial, Sans-Serif;
     margin: 0;
     padding: 0;
-    color: #696969;
+    text-align: center;
 }
 
-a:link {
-    color: #034af3;
-    text-decoration: underline;
+div
+{
+    margin: 0 auto;
+    display: block;
+    text-align: left;
+    vertical-align: top;
 }
 
-a:visited {
-    color: #505abc;
-}
-
-a:hover {
-    color: #1d60ff;
-    text-decoration: none;
-}
-
-a:active {
-    color: #12eb87;
-}
-
-p, ul {
-    margin-bottom: 20px;
-    line-height: 1.6em;
-}
-
-header,
-footer,
-nav,
-section {
+header, footer, nav, section
+{
     display: block;
 }
 
-/* HEADINGS   
-----------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
-    font-size: 1.5em;
-    color: #000;
+a:link, a:visited, a:active
+{
+    color: inherit;
 }
 
-h1 {
-    font-size: 2em;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
 
-h2 {
-    padding: 0 0 10px 0;
-}
+/*
+Generic Form Elements
+*/
 
-h3 {
-    font-size: 1.2em;
-}
-
-h4 {
-    font-size: 1.1em;
-}
-
-h5, h6 {
-    font-size: 1em;
-}
-
-/* PRIMARY LAYOUT ELEMENTS   
-----------------------------------------------------------*/
-
-/* you can specify a greater or lesser percentage for the 
-page width. Or, you can specify an exact pixel width. */
-.page {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-header, #header {
+input
+{
     position: relative;
-    margin-bottom: 0px;
-    color: #000;
-    padding: 0;
 }
 
-header h1, #header h1 {
-    font-weight: bold;
-    padding: 5px 0;
-    margin: 0;
-    color: #fff;
-    border: none;
-    line-height: 2em;
-    font-size: 32px !important;
-    text-shadow: 1px 1px 2px #111;
-}
-
-#main {
-    padding: 30px 30px 15px 30px;
-    background-color: #fff;
-    border-radius: 4px 0 0 0;
-    -webkit-border-radius: 4px 0 0 0;
-    -moz-border-radius: 4px 0 0 0;
-}
-
-footer, 
-#footer {
-    background-color: #fff;
-    color: #999;
-    padding: 10px 0;
-    text-align: center;
-    line-height: normal;
-    margin: 0 0 30px 0;
-    font-size: .9em;
-    border-radius: 0 0 4px 4px;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
-}
-
-/* TAB MENU   
-----------------------------------------------------------*/
-ul#menu {
-    border-bottom: 1px #5C87B2 solid;
-    padding: 0 0 2px;
-    position: relative;
-    margin: 0;
-    text-align: right;
-}
-
-ul#menu li {
-    display: inline;
-    list-style: none;
-}
-
-ul#menu li#greeting {
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    color: #fff;
-}
-
-ul#menu li a {
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    background-color: #e8eef4;
-    color: #034af3;
-    border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
-}
-
-ul#menu li a:hover {
-    background-color: #fff;
-    text-decoration: none;
-}
-
-ul#menu li a:active {
-    background-color: #a6e2a6;
-    text-decoration: none;
-}
-
-ul#menu li.selected a {
-    background-color: #fff;
-    color: #000;
-}
-
-/* FORM LAYOUT ELEMENTS   
-----------------------------------------------------------*/
-
-fieldset {
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
-}
-
-legend {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-textarea {
-    min-height: 75px;
-}
-
-input[type="text"], 
-input[type="password"] {
-    border: 1px solid #ccc;
+input, textarea.textbox
+{
+    border: 1px solid black;
     padding: 2px;
-    font-size: 1.2em;
-    color: #444;
     width: 200px;
 }
 
-select {
-    border: 1px solid #ccc;
-    padding: 2px;
-    font-size: 1.2em;
-    color: #444;
+input.short
+{
+    width: 90px;
 }
 
-input[type="submit"] {
-    font-size: 1.2em;
-    padding: 5px;
+textarea.textbox
+{
+    height: 10em;
 }
 
-/* TABLE
-----------------------------------------------------------*/
-
-table {
-    border: solid 1px #e8eef4;
-    border-collapse: collapse;
+span.seperator
+{
+    font-size: 18pt;
+    font-weight: bold;
 }
 
-table td {
-    padding: 5px;
-    border: solid 1px #e8eef4;
+select.select
+{
+    width: 150px;
+    font-weight: bold;
+    border: 1px solid black;
 }
 
-table th {
-    padding: 6px 5px;
-    text-align: left;
-    background-color: #e8eef4;
-    border: solid 1px #e8eef4;
-}
 
-/* MISC  
-----------------------------------------------------------*/
-.clear {
-    clear: both;
-}
+/*
+Header Style
+*/
 
-.error {
-    color: Red;
+.Header
+{
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
 }
-
-nav, 
-#menucontainer {
-    margin-top: 40px;
+.Header div
+{
+    vertical-align: middle;
+    display: inline;
 }
+/*
+Sidebar Styles
+*/
 
-div#title {
-    display: block;
+div#sidebar
+{
+    width: 200px;
+    padding: 0 10px 0 10px;
     float: left;
-    text-align: left;
+    position: fixed;
+    top: 130px;
 }
 
-#logindisplay {
-    font-size: 1.1em;
-    display: block;
-    text-align: right;
-    margin: 10px;
+div#sidebar.fixed
+{
+    position: fixed;
+    top: 130px;
+}
+
+div#sidebar ul
+{
+    margin-left: 0px;
+    padding: 0px;
+}
+
+div#sidebar li
+{
+    width: 100%;
+    display: inline-block;
+    background-color: White;
+    height: 20px;
+    color: Black;
+    font-weight: bolder;
+    font-size: 13pt;
+    margin-left: 0;
+    padding: 5px;
+    position: relative;
+    z-index: 5;
+}
+
+
+div#sidebar #dvSelector
+{
+    display: inline;
+    position: relative;
+    z-index: 0;
+    right: -10px;
+    top: 5px;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid green;
+    border-top: 2px solid transparent;
+    height: 0;
+    width: 10;
+}
+
+
+div#sidebar .Selected
+{
+    background-color: Black;
     color: White;
+    padding: 5px;
+    margin: 0px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
 }
 
-#logindisplay a:link {
-    color: white;
-    text-decoration: underline;
+div#sidebar .Selected:after
+{
+    height: 0;
+    width: 10px;
+    content: " >";
 }
 
-#logindisplay a:visited {
-    color: white;
-    text-decoration: underline;
-}
-
-#logindisplay a:hover {
-    color: white;
+div#sidebar li a
+{
     text-decoration: none;
 }
 
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error {
-    color: #ff0000;
+
+div#sidebar #Submit
+{
+    width: 100%;
+    height: 40px;
+    border: 1px solid black;
+    background-color: White;
+    font-weight: bolder;
+    text-transform: capitalize;
+    font-size: 20pt;
+    disabled: disabled;
 }
 
-.field-validation-valid {
-    display: none;
+div#sidebar hr
+{
+    border-bottom: 1px black;
+    border-style: dashed;
 }
 
-.input-validation-error {
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
+
+/*
+Content Styles
+*/
+
+div.Content
+{
+    width: 640px;
+    float: right;
 }
 
-.validation-summary-errors {
+div.Content div
+{
+    width: 100%;
+}
+
+div.Content .Section .Header
+{
+    width: 100%;
+    border-bottom: 2px solid black;
+    font-size: 24pt;
     font-weight: bold;
-    color: #ff0000;
+    padding-top: 1.5em;
 }
 
-.validation-summary-valid {
-    display: none;
+div.Content .Section:first-child .Header
+{
+    padding-top: 0px;
 }
 
-/* Styles for editor and display helpers
-----------------------------------------------------------*/
-.display-label, 
-.editor-label {
-    margin: 1em 0 0 0;
+
+
+div.Content .Section .Field
+{
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
 }
 
-.display-field, 
-.editor-field {
-    margin: 0.5em 0 0 0;
+div.Content .Section .Field > div
+{
+    display: inline;
 }
 
-.text-box {
-    width: 30em;
+div.Content .Section .Field .Label
+{
+    font-weight: bold;
+    font-size: 18pt;
+    width: 200px;
+    vertical-align: top;
+    display: inline-block;
 }
 
-.text-box.multi-line {
-    height: 6.5em;
+div.Content .Section .Field div.Input
+{
+    vertical-align: middle;
 }
 
-.tri-state {
-    width: 6em;
+div.Content .Section .Field input.date
+{
+    width: 200px;
+}
+
+/*
+Tag-specific style
+*/
+
+div#main
+{
+    width: 900px;
+    margin-top: 10px;
+}
+
+div.Main div
+{
+    display: inline-block;
+}
+
+
+div.PageTitle
+{
+    width: 100%;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 28pt;
+}
+
+hr#pageSeperator
+{
+    width: 100%;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+input.Hour, input.Minute, input.BP
+{
+    width: 3em;
+}
+
+/*
+Account Bar Control
+*/
+#accountBar, #accountBar div
+{
+    display: inline-block;
+}
+
+#accountBar
+{
+    width: auto;
+    display: inline;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding-top: 20px;
+}
+
+#accountBar div
+{
+    margin: 0px;
+    padding-left: 4px;
+    padding-top: 4px;
+    vertical-align: middle;
+    text-align: center;
+    border-left: 2px solid black;
+}
+
+#accountBar div:first-child
+{
+    border-left: none;
+}
+
+#accountBar div#nameContainer
+{
+    padding-top: 3px;
+    font-weight: bold;
+    width: auto;
+    vertical-align: middle;
+}
+
+
+/*
+Selectables
+*/
+
+
+ul.select
+{
+    display: inline;
+    padding: 0px 10px;
+    margin: 0px;
+}
+
+ul.select li
+{
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul.select .ui-selecting
+{
+    background: #FECA40;
+}
+
+ul.select .ui-selected
+{
+    background: black;
+    color: white;
+}
+
+ul.select li
+{
+    text-transform:capitalize;
+    padding:0 4px;
+    font-size: 1.4em;
+}
+
+ul.select li:hover
+{
+    cursor:pointer;
+    background-color:#FECA40;
 }

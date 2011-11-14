@@ -150,6 +150,12 @@ namespace COP4710.Controllers
             return View();
         }
 
+        public ActionResult AccountBar()
+        {
+            return View();
+        }
+
+
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
