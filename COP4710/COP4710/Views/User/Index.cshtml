@@ -1,0 +1,68 @@
+﻿@model IEnumerable<COP4710.Models.UserModel>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="ListView">
+    @foreach (var item in Model)
+    {
+        <div class="ListViewItem">
+            <div class="Header">
+                <div style="float: left;">@Html.DisplayFor(modelItem => item.FirstName)
+                    @Html.DisplayFor(modelItem => item.LastName)</div>
+            </div>
+            <div class="Detail">
+                <table>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsActive)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+</div>
+<style type="text/css">
+    .ListView .Header
+    {
+        color: White;
+        background-color: Black;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+    
+    .ListView .Detail
+    {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+
+    $(function () {
+
+        $('.ListViewItem').each(function () {
+
+            $parent = $(this);
+            $('.Header', this).click(function () {
+
+                $('.Detail', $parent).toggle();
+            });
+        });
+    });
+</script>

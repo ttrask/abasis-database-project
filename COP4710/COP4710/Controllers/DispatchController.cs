@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using COP4710.Models;
+using COP4710.Models.Enumerations;
+using COP4710.DataAccess;
 
 namespace COP4710.Controllers
 {
@@ -13,7 +16,7 @@ namespace COP4710.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(DispatchDAO.List());
         }
 
         //
@@ -29,7 +32,7 @@ namespace COP4710.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View(new DispatchModel());
         } 
 
         //
@@ -40,9 +43,14 @@ namespace COP4710.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                DispatchModel form = new DispatchModel();
+
+                TryUpdateModel<DispatchModel>(form , collection.ToValueProvider());
+
+                DispatchDAO.Insert(form);
 
                 return RedirectToAction("Index");
+        
             }
             catch
             {
@@ -100,6 +108,18 @@ namespace COP4710.Controllers
             {
                 return View();
             }
+        }
+
+        public List<SelectListItem> ListETA()
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            for (int i = 0; i <= 60; i++)
+            {
+                list.Add(new SelectListItem(){ Text=i.ToString(), Value=i.ToString()});
+            }
+
+            return list;
         }
     }
 }

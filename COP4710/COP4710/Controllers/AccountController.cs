@@ -26,6 +26,7 @@ namespace COP4710.Controllers
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
+            /*
             if (ModelState.IsValid)
             {
                 if (Membership.ValidateUser(model.UserName, model.Password))
@@ -38,7 +39,14 @@ namespace COP4710.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        switch (model.AccountType)
+                        {
+                            case Models.Enumerations.AccountType.Administrator:
+                                return RedirectToAction("Index", "Home");
+                            default:
+                                return RedirectToAction("Index", "Dispatch");
+
+                        }
                     }
                 }
                 else
@@ -49,6 +57,8 @@ namespace COP4710.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+             * */
+            return RedirectToAction("Index", "Dispatch");
         }
 
         //
@@ -58,11 +68,17 @@ namespace COP4710.Controllers
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Logon", "Account");
         }
 
         //
         // GET: /Account/Register
+
+        public ActionResult MyInformation()
+        {
+            return View();
+        }
+
 
         public ActionResult Register()
         {

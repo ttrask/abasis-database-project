@@ -1,9 +1,14 @@
-﻿<div id='accountBar'>
+﻿@{
+       
+    Layout = "";
+}
+
+<div id='accountBar'>
     <div id="nameContainer">
         Welcome, Thomas
     </div>
     <div>
-        <a href="#">
+        <a href="@Url.Action("MyInformation", "Account", null)">
             <img src="@Url.Content("~/content/images/gear.png")" height="24px" width="24px" alt="Control" />
         </a>
     </div>

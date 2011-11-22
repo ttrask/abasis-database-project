@@ -45,9 +45,19 @@ input, textarea.textbox
     width: 200px;
 }
 
+input[type=checkbox]
+{
+    width:10px;
+}
+
 input.short
 {
     width: 90px;
+}
+
+div.Checklist
+{
+    width:300px;
 }
 
 textarea.textbox
@@ -55,18 +65,20 @@ textarea.textbox
     height: 10em;
 }
 
-span.seperator
+span.Seperator
 {
     font-size: 18pt;
     font-weight: bold;
+    content: "|";
 }
 
-select.select
+select
 {
-    width: 150px;
+    width: 200px;
     font-weight: bold;
     border: 1px solid black;
 }
+
 
 
 /*
@@ -146,9 +158,7 @@ div#sidebar .Selected
     color: White;
     padding: 5px;
     margin: 0px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid black;
 }
 
 div#sidebar .Selected:after
@@ -163,23 +173,26 @@ div#sidebar li a
     text-decoration: none;
 }
 
-
-div#sidebar #Submit
+div#sidebar #Submit, .Submit
 {
-    width: 100%;
+    width: auto;
     height: 40px;
     border: 1px solid black;
     background-color: White;
     font-weight: bolder;
-    text-transform: capitalize;
+    padding:0 10px;
+    text-transform:uppercase;
     font-size: 20pt;
-    disabled: disabled;
+    font-weight:normal !important;
+    text-decoration:none;
 }
 
-div#sidebar hr
+hr.Submit
 {
     border-bottom: 1px black;
-    border-style: dashed;
+    width:100%;
+    height:0px;
+    border-style: solid;
 }
 
 
@@ -198,7 +211,7 @@ div.Content div
     width: 100%;
 }
 
-div.Content .Section .Header
+div.Content .Section .Header, #login .Header
 {
     width: 100%;
     border-bottom: 2px solid black;
@@ -212,9 +225,7 @@ div.Content .Section:first-child .Header
     padding-top: 0px;
 }
 
-
-
-div.Content .Section .Field
+div.Content .Section .Field, #login .Field
 {
     position: relative;
     display: inline-block;
@@ -222,12 +233,12 @@ div.Content .Section .Field
     padding: 10px;
 }
 
-div.Content .Section .Field > div
+div.Content .Section .Field > div, #login .Field > div
 {
     display: inline;
 }
 
-div.Content .Section .Field .Label
+div.Content .Section .Field .Label, #login .Field .Label
 {
     font-weight: bold;
     font-size: 18pt;
@@ -236,12 +247,12 @@ div.Content .Section .Field .Label
     display: inline-block;
 }
 
-div.Content .Section .Field div.Input
+.Field div.Input
 {
     vertical-align: middle;
 }
 
-div.Content .Section .Field input.date
+.Field input.date
 {
     width: 200px;
 }
@@ -254,6 +265,13 @@ div#main
 {
     width: 900px;
     margin-top: 10px;
+}
+
+div#login
+{
+    margin:0 auto;
+    margin-top: 100px;
+    width:300px;
 }
 
 div.Main div
@@ -328,18 +346,19 @@ Selectables
 */
 
 
-ul.select
+ul.select, p.selectable
 {
     display: inline;
     padding: 0px 10px;
     margin: 0px;
 }
 
-ul.select li
+ul.select li, p.selectable
 {
     display: inline;
     padding: 0px;
     margin: 0px;
+    cursor:pointer;
 }
 
 ul.select .ui-selecting
@@ -347,16 +366,20 @@ ul.select .ui-selecting
     background: #FECA40;
 }
 
-ul.select .ui-selected
+ul.select .ui-selected, p.selectable.ui-selected
 {
     background: black;
     color: white;
 }
 
-ul.select li
+ul.select li, p.selectable
 {
+    width:auto;
+    min-width:200px;
+    display:inline-block;
     text-transform:capitalize;
-    padding:0 4px;
+    padding:4px;
+    margin:4px;
     font-size: 1.4em;
 }
 
@@ -365,3 +388,10 @@ ul.select li:hover
     cursor:pointer;
     background-color:#FECA40;
 }
+
+
+.focused{  
+        border:solid 2px #73A6FF;  
+        background:#EFF5FF;  
+        color:#000;  
+}  

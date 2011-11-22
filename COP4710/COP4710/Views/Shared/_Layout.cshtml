@@ -14,10 +14,17 @@
     </script>
 </head>
 <body>
-    <div class="page">
-        <div id="header">
+    <div id="main">
+        <div class="Header">
+            <div class="PageTitle">
+                @ViewBag.PageTitle
+            </div>
+            <div style="float: right; display: inline; margin-top:8px">
+                @{Html.RenderAction("AccountBar", "Account", new { });}
+            </div>
         </div>
-        <div id="main">
+        <hr id="pageSeperator" />
+        <div id="">
             @RenderBody()
         </div>
         <div id="footer">

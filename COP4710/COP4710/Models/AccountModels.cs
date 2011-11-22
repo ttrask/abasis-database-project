@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
+using COP4710.Models.Enumerations;
 
 namespace COP4710.Models
 {
@@ -40,6 +41,8 @@ namespace COP4710.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        public AccountType AccountType;
     }
 
     public class RegisterModel
