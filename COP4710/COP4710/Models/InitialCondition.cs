@@ -10,7 +10,7 @@ namespace COP4710.Models
     {
         public int Age { get; set; }
 
-        public AgeType AgeTye { get; set; }
+        public AgeType AgeType { get; set; }
 
         public Gender Gender { get; set; }
 
@@ -30,11 +30,9 @@ namespace COP4710.Models
 
         public string ChiefComplaint { get; set; }
 
-        public Boolean? LossOfConciousness { get; set; }
+        public Boolean LossOfConciousness { get; set; }
 
         public int GSC1 { get; set; }
-
-        public int GSC2 { get; set; }
 
         public int Pulse1 { get; set; }
         

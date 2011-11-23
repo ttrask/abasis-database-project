@@ -18,6 +18,6 @@ namespace COP4710.Models
         [Display(Name="Destination")]
         public DispatchDestination TC_ER__PEDS { get; set; }
 
-        
+        public bool CardiacRed { get; set; }   
     }
 }

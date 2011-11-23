@@ -5,12 +5,14 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 using COP4710.Models.Enumerations;
-
+using System.Security.Principal;
 
 namespace COP4710.Models
 {
-    public class UserModel
+    public class UserModel: IPrincipal
     {
+
+        private IIdentity _identity;
 
         [Required]
         [Display(Name = "User name")]
@@ -37,6 +39,19 @@ namespace COP4710.Models
         [Display(Name = "Account Type")]
         public AccountType AccountType { get; set; }
 
+
+        public bool IsInRole(string role)
+        {
+            return (AccountType)Enum.Parse(typeof(AccountType), role) == this.AccountType;
+        }
+
+        public IIdentity Identity
+        {
+            get
+            {
+                return _identity;
+            }
+        }
 
     }
 }

@@ -4,10 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using COP4710.Models;
+using COP4710.Models.Enumerations;
 using COP4710.DataAccess;
+using COP4710.Attributes;
 
 namespace COP4710.Controllers
 {
+    [Authorization(UserRole = AccountType.Administrator)]
     public class UserController : Controller
     {
         //

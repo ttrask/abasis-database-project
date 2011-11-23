@@ -41,10 +41,9 @@
                 @Html.DisplayFor(modelItem => item.County)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { @id=item.FormID }) |
+                @Html.ActionLink("Details", "Details", new { @id=item.FormID }) |
             </td>
         </tr>
-    }
+    }   
 </table>

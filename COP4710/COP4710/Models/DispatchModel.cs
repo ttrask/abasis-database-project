@@ -13,6 +13,8 @@ namespace COP4710.Models
     public class DispatchModel
     {
 
+        public int FormID{ get; set;}
+
         [Required]
         public UserModel CreateUser { get; set; }
 
@@ -23,7 +25,7 @@ namespace COP4710.Models
         public int Unit { get; set; }
 
         [Required]
-        public string County { get; set; }
+        public County County { get; set; }
 
         public AlertsModel Alerts { get; set; }
         public CrashInformationModel CrashInformation { get; set; }

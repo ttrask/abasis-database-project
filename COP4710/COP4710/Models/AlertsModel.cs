@@ -11,14 +11,31 @@ namespace COP4710.Models
 {
     public class AlertsModel
     {
-        [Display(Name="Trauma Alert")]
+        private string onset;
+
+        [Display(Name = "Trauma Alert")]
         public Boolean TraumaAlert { get; set; }
 
         [Display(Name = "Stroke Alert")]
         public Boolean StrokeAlert { get; set; }
 
         [Display(Name = "First Incident of Stroke")]
-        public string onSet { get; set; }
+        public string onSet
+        {
+            get
+            {
+                return onset;
+            }
+            set
+            {
+                if (!String.IsNullOrWhiteSpace(value) && value.Trim().Length > 0)
+                    onset = value;
+                else
+                {
+                    onset = null;
+                }
+            }
+        }
 
         [Display(Name = "STEMI")]
         public Boolean STEMI { get; set; }
@@ -33,7 +50,7 @@ namespace COP4710.Models
 
         public Treatment Treatment { get; set; }
 
-        public string Notified { get; set; }
+        public Boolean Notified { get; set; }
 
         public int ETA { get; set; }
 

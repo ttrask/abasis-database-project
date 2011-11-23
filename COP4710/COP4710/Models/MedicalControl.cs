@@ -11,6 +11,6 @@ namespace COP4710.Models
         public string Meds { get; set; }
         public string DrsSignature { get; set; }
         public int DEANumber { get; set; }
-        public string NARC { get; set; }
+        public bool NARC { get; set; }
     }
 }

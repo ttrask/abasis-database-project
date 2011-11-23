@@ -34,6 +34,7 @@
                     </div>
                     <div class="Input">
                         @Model.CreateDate.ToString("hh:mm tt MM/dd/yyyy")
+                        @Html.HiddenFor(m => m.FormID)
                     </div>
                 </div>
                 <div class="Field">
@@ -62,7 +63,7 @@
                         Age
                     </div>
                     <div class="Input">
-                        @Html.TextBoxFor(m => m.InitialCondition.Age)@Html.DropDownListFor(x => x.InitialCondition.AgeTye, new SelectList(Enum.GetValues(typeof(COP4710.Models.Enumerations.AgeType))))
+                        @Html.TextBoxFor(m => m.InitialCondition.Age)@Html.DropDownListFor(x => x.InitialCondition.AgeType, new SelectList(Enum.GetValues(typeof(COP4710.Models.Enumerations.AgeType))))
                     </div>
                 </div>
                 <div class="Field">
@@ -78,7 +79,7 @@
                         A&O X
                     </div>
                     <div class="Input">
-                        @Html.TextBoxFor(m => m.InitialCondition.A_OX, new { @class = "textbox" })
+                        @Html.TextBoxFor(m => m.InitialCondition.A_OX, new { @class = "textbox" });
                     </div>
                 </div>
                 <div class="Field">
@@ -164,20 +165,38 @@
                         <input class="textbox" />
                     </div>
                 </div>
-                <div class="Field" style="display: inline;">
+                <div class="Field" style="">
                     <div class="Label">
                         Condition
                     </div>
                     <div class="Input">
-                        <div class="Checklist" style="width: 420px">
-                            <p class="selectable">
-                                @Html.LabelFor(m => m.CrashInformation.Ejected) @Html.CheckBoxFor(m => m.CrashInformation.Ejected)</p>
-                            <p class="selectable">
-                                @Html.LabelFor(m => m.CrashInformation.Entrapped) @Html.CheckBoxFor(m => m.CrashInformation.Entrapped)</p>
-                            <p class="selectable">@Html.LabelFor(m => m.CrashInformation.Rollover) @Html.CheckBoxFor(m => m.CrashInformation.Rollover)</p>
-                            <p class="selectable">@Html.LabelFor(m => m.CrashInformation.HasHelmet) @Html.CheckBoxFor(m => m.CrashInformation.HasHelmet)</p>
-                            <p class="selectable">@Html.LabelFor(m => m.CrashInformation.AirbagDeployed) @Html.CheckBoxFor(m => m.CrashInformation.AirbagDeployed)</p>
-                            <p class="selectable">@Html.LabelFor(m => m.CrashInformation.isPackaged) @Html.CheckBoxFor(m => m.CrashInformation.isPackaged)</p>
+                        <div class="Checklist" style="width: 400px">
+                            <table>
+                                <tr>
+                                    <td class="selectable">
+                                        @Html.CheckBoxFor(m => m.CrashInformation.Ejected) @Html.LabelFor(m => m.CrashInformation.Ejected)
+                                    </td>
+                                    <td class="selectable">
+                                        @Html.CheckBoxFor(m => m.CrashInformation.Entrapped) @Html.LabelFor(m => m.CrashInformation.Entrapped)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="selectable">
+                                        @Html.CheckBoxFor(m => m.CrashInformation.Rollover) @Html.LabelFor(m => m.CrashInformation.Rollover)
+                                    </td>
+                                    <td class="selectable">
+                                        @Html.CheckBoxFor(m => m.CrashInformation.HasHelmet) @Html.LabelFor(m => m.CrashInformation.HasHelmet)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="selectable">
+                                        @Html.CheckBoxFor(m => m.CrashInformation.AirbagDeployed) @Html.LabelFor(m => m.CrashInformation.AirbagDeployed)
+                                    </td>
+                                    <td class="selectable">
+                                        @Html.CheckBoxFor(m => m.CrashInformation.isPackaged) @Html.LabelFor(m => m.CrashInformation.isPackaged)
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -207,7 +226,7 @@
                         @Html.LabelFor(m => m.Alerts.onSet)
                     </div>
                     <div class="Input">
-                        @Html.TextBoxFor(m => m.Alerts.onSet)
+                        @Html.TextBoxFor(m => m.Alerts.onSet);
                     </div>
                 </div>
                 <div class="Field">
@@ -338,6 +357,9 @@
                     </div>
                     <div class="Input">
                         @Html.TextBoxFor(m => m.MedicalControl.NARC)
+                        @{ 
+                            Html.ValidateFor(m => m.MedicalControl.NARC);
+                        }
                     </div>
                 </div>
             </div>

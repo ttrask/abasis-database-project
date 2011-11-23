@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using COP4710.Models;
+using COP4710.DataAccess;
 
 namespace COP4710.Controllers
 {
@@ -26,39 +27,23 @@ namespace COP4710.Controllers
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
-            /*
-            if (ModelState.IsValid)
+
+
+            UserModel user = UserDAO.AuthenticateUser(model.UserName, model.Password);
+
+            if (user != null)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
-                {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        switch (model.AccountType)
-                        {
-                            case Models.Enumerations.AccountType.Administrator:
-                                return RedirectToAction("Index", "Home");
-                            default:
-                                return RedirectToAction("Index", "Dispatch");
-
-                        }
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
+                FormsAuthentication.SetAuthCookie(user.UserName, true);
+                Session["CurrentUser"] = user;
+                RedirectToAction("Dispatch", "Index");
             }
+            else
+            {
+                return View();
+            }
+            
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-             * */
-            return RedirectToAction("Index", "Dispatch");
+            
         }
 
         //

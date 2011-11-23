@@ -112,6 +112,59 @@ namespace COP4710.DataAccess
             return users;
         }
 
+
+        public static UserModel AuthenticateUser(string username, string password)
+        {
+            if (cn == null)
+            {
+                cn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["ConnectionString"]);
+
+            }
+
+            UserModel user = null;
+
+            try
+            {
+
+                cn.Open();
+
+                SqlTransaction tn = (SqlTransaction)cn.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted);
+
+                SqlCommand cmd = new SqlCommand("AuthenticateUser", cn, tn);
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("Username", username);
+                cmd.Parameters.AddWithValue("Password", username);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    user = new UserModel()
+                    {
+                        UserName = (string)reader["Username"].ToString().Trim(),
+                        Password = (string)reader["Password"].ToString().Trim(),
+                        IsActive = (Boolean)(String.IsNullOrEmpty(reader["IsActive"].ToString()) ? false : Boolean.Parse(reader["IsActive"].ToString())),
+                        FirstName = (string)reader["FirstName"].ToString().Trim(),
+                        LastName = (string)reader["LastName"].ToString().Trim(),
+                        AccountType = (AccountType)Enum.Parse(typeof(AccountType), reader["AccountType"].ToString().ToString().Trim())
+                    };
+                }
+
+                
+            }
+            catch
+            {
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return user;
+        }
+
         public static UserModel GetUserByUsername(string Username)
         {
             if (cn == null)

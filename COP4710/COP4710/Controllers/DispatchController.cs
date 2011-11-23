@@ -9,6 +9,7 @@ using COP4710.DataAccess;
 
 namespace COP4710.Controllers
 {
+    [Authorize]
     public class DispatchController : Controller
     {
         //
@@ -47,14 +48,14 @@ namespace COP4710.Controllers
 
                 TryUpdateModel<DispatchModel>(form , collection.ToValueProvider());
 
-                DispatchDAO.Insert(form);
+                int rowsAffected = DispatchDAO.Insert(form);
 
                 return RedirectToAction("Index");
         
             }
             catch
             {
-                return View();
+                return RedirectToAction("Create");
             }
         }
         
@@ -63,7 +64,10 @@ namespace COP4710.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            if (id > 0)
+                return View(DispatchDAO.GetDispatchByID(id));
+            else
+                return RedirectToAction("Index");
         }
 
         //
@@ -72,43 +76,32 @@ namespace COP4710.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
+            DispatchModel form = new DispatchModel();
+
             try
             {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
+                
+                TryUpdateModel<DispatchModel>(form, collection.ToValueProvider());
+
+                int rowsAffected = DispatchDAO.UpdateForm(form);
             }
             catch
             {
                 return View();
             }
-        }
 
-        //
-        // GET: /Dispatch/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Dispatch/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", new { id = form.FormID });
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
+ 
         }
+
+     
 
         public List<SelectListItem> ListETA()
         {

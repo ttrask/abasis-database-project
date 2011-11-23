@@ -32,28 +32,8 @@ $(function () {
     //Generate Sidebar from Content
     GenerateSidebarHtml();
 
-    $('p.selectable').each(function () {
-        var $text = $(this).text();
-        var $chk = $('input[type=checkbox]', this);
-        var $hidden = $('input[type=hidden]', this);
 
-        $chk.css('display', 'none');
 
-        $text = $text + $chk.outerHTML() + $hidden.outerHTML();
-
-        $(this).html($text);
-    }).click(function () {
-        $(this).toggleClass('ui-selected');
-        var $checkbox = $('input[type=checkbox]', this);
-        $checkbox.attr('checked', !$checkbox.attr('checked'));
-    });
-
-    $('ul.select').selectable({
-        start: function () {
-            $("li.ui-selected", this).removeClass("ui-selected");
-
-        }
-    });
 
     TrackSidebar();
 
@@ -72,10 +52,42 @@ $(function () {
 
         //highlight sidebar
         HighlightSidebarSection($(this).attr('href').replace('#', ''));
-    })
+    });
+
+
+    $('select, textarea').focus(function () {
+        focusElement(this);
+    });
+
+    $('select, textarea').click(function () {
+        focusElement(this);
+    });
+
+    $('input').focus(function () {
+        if ($(this).attr('type') != 'checkbox') {
+            focusElement(this);
+        }
+        else {
+            focusElement($(this).closest('.selectable'));
+        }
+    }).click(function () {
+
+        if ($(this).attr('type') != 'checkbox') {
+            focusElement(this);
+        }
+        else {
+            focusElement($(this).closest('.selectable'));
+        }
+    });
+
 
 });
 
+function focusElement(elem) {
+
+    $('.focused').removeClass('focused');
+    $(elem).addClass('focused');
+}
 
 function moveObject(event) {
     jQuery.scrollTo.window().queue([]).stop();
@@ -133,9 +145,9 @@ $('.ValidationMessage').each(function () {
 
 /*
 $("#logon").validate({
-    errorPlacement: function (error, element) {
-        error.insertAfter(element);
-    },
-    debug: true
+errorPlacement: function (error, element) {
+error.insertAfter(element);
+},
+debug: true
 })
 */

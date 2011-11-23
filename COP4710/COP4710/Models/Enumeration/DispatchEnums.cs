@@ -86,8 +86,8 @@ namespace COP4710.Models.Enumerations
 
     public enum County
     {
-        Duval = 1,
-        Clay = 2, 
-        Nassau = 3
+        Duval ,
+        Clay , 
+        Nassau 
     }
 }
