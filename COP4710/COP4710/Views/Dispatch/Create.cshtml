@@ -5,9 +5,13 @@
     ViewBag.Title = "Dispatcher Form Input";
     ViewBag.PageTitle = ViewBag.Title;
 }
+
+<script src = "@Url.Content("~/Scripts/jquery.validate.min.js")" type = "text/javascript"></script>
+<script src = "@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type = "text/javascript"></script>
+
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
 
     <div class="Main" id="Main">
         <div class="Sidebar" id="sidebar">
@@ -358,7 +362,7 @@
                     <div class="Input">
                         @Html.TextBoxFor(m => m.MedicalControl.NARC)
                         @{ 
-                            Html.ValidateFor(m => m.MedicalControl.NARC);
+                             Html.ValidateFor(m => m.MedicalControl.NARC);
                         }
                     </div>
                 </div>

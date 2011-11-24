@@ -57,3 +57,8 @@ H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP471
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.pdb
 C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.dll
+C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\COP4710.dll
+C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\COP4710.pdb
+C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\EntityFramework.dll
+C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\EntityFramework.xml
+C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.pdb

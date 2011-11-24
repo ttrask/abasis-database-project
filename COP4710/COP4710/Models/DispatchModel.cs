@@ -9,19 +9,18 @@ using COP4710.Models.Enumerations;
 
 namespace COP4710.Models
 {
-
     public class DispatchModel
     {
 
         public int FormID{ get; set;}
 
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public UserModel CreateUser { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public DateTime CreateDate { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This field is required")]
         public int Unit { get; set; }
 
         [Required]

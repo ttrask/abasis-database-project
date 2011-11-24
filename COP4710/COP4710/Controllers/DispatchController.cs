@@ -9,7 +9,6 @@ using COP4710.DataAccess;
 
 namespace COP4710.Controllers
 {
-    [Authorize]
     public class DispatchController : Controller
     {
         //
@@ -42,6 +41,7 @@ namespace COP4710.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+
             try
             {
                 DispatchModel form = new DispatchModel();
