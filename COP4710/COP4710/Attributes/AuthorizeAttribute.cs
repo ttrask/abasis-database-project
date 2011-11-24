@@ -13,12 +13,13 @@ namespace COP4710.Attributes
     public class AuthorizationAttribute : ActionFilterAttribute, IActionFilter
     {
         public AccountType UserRole { get; set; }
-
+        /*
         void OnActionExecuting(ActionExecutedContext filterContext)
         {
             base.OnActionExecuting(filterContext);
 
         }
+        */
     }
 }
 

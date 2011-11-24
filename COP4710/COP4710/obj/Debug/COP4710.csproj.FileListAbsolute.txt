@@ -55,3 +55,5 @@ H:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\EntityFramew
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.dll
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.pdb
+C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.dll

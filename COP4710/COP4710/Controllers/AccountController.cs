@@ -35,7 +35,7 @@ namespace COP4710.Controllers
             {
                 FormsAuthentication.SetAuthCookie(user.UserName, true);
                 Session["CurrentUser"] = user;
-                RedirectToAction("Dispatch", "Index");
+                return RedirectToAction("Dispatch", "Index");
             }
             else
             {
