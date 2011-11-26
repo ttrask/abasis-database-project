@@ -48,7 +48,7 @@ namespace COP4710.Models
             if (systolic > 0 || diastolic > 0)
                 return systolic + "/" + diastolic;
             else
-                return null;
+                return "";
         }
     }
 }

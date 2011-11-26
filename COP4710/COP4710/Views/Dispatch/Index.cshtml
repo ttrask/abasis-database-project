@@ -1,49 +1,62 @@
 ﻿@model IEnumerable<COP4710.Models.DispatchModel>
+@using COP4710.Models;
 @{
     ViewBag.Title = "Dispatch Forms";
     ViewBag.PageTitle = "Dispatch Forms";
+    
 }
-<p>
-<a href="@Url.Action("Create")" class="Submit">New Form</a>
-</p>
-<table>
-    <tr>
-    <th>
-            Create User
-        </th>
-        
-        <th>
-            Create Date
-        </th>
-        <th>
-            Unit
-        </th>
-        <th>
-            County
-        </th>
-        <th>
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @(item.CreateUser.FirstName + " " + item.CreateUser.LastName)
-                
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Unit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.County)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { @id=item.FormID }) |
-                @Html.ActionLink("Details", "Details", new { @id=item.FormID }) |
-            </td>
-        </tr>
-    }   
-</table>
+<div id="sidebar" class="fixed">
+    <a href="@Url.Action("Create")" class="Submit">New Form</a>
+</div>
+<div class="Content">
+    <div class="Section">
+        <div class="Field">
+            <div class="Label" style="display:inline; vertical-align:middle;" >
+                Go to form
+            
+                <input type="text" id="gotoForm" style="padding:0; margin:0; width:5em;"/>
+                <a id="goButton" class="Submit Small">Go </a>
+            </div>
+        </div>
+
+        @foreach (DispatchModel item in Model)
+        {
+            <a href="@Url.Action("Details", new { id = item.FormID })" style="display:block; margin-right:20px;" >
+                <div class="ListItem">
+                    <div class="left">
+                        Form @item.FormID</div>
+                    <div class="right">@item.CreateDate.ToString("hh:mm tt MM/dd/yyyy")</div>
+                </div>
+            </a> 
+        }
+        <div class="Pager">
+            <hr />
+            @if ((int)ViewBag.Page > 0)
+            {
+                @Html.ActionLink("Prev", "Index", new { Page = ViewBag.Page - 1 }, new { @class = "Submit" })   
+            }
+            &nbsp;
+            @Html.ActionLink("Next", "Index", new { Page = (int)ViewBag.Page + 1 }, new { @class = "Submit" })
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var _dispatchDetail = "@Url.Action("Details")/";
+    $(function () {
+        $('#gotoForm').keyup(function () {
+
+            var value = $('#gotoForm').val().replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+            var intRegex = /^\d+$/;
+
+            if (intRegex.test(value)) {
+                $('#goButton').attr('href', _dispatchDetail + value).removeClass('disabled');
+
+            }
+            else {
+               $('#goButton').attr('href', '#').addClass('disabled');
+            }
+
+        });
+    });
+</script>

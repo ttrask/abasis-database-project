@@ -1,0 +1,392 @@
+﻿@model COP4710.Models.DispatchModel
+@using COP4710.Models;
+@using COP4710.Models.Enumerations;
+@{
+    ViewBag.Title = "Form Details";
+    ViewBag.PageTitle = "Form " + Model.FormID + " Details";
+}
+    <div class="Sidebar" id="sidebar">
+        @Html.ActionLink("<<Forms", "Index", "Dispatch", null, new {@class="Submit", @ID="Back"})
+        <hr />
+        <ul id="sidebarLinks">
+        </ul>
+        <hr />
+        @if (((UserModel)Session["CurrentUser"]).AccountType == AccountType.Administrator)
+        {
+            <a class="Submit" href="@Url.Action("Edit", "Dispatch", new { id = Model.FormID })" id="Edit" >
+                Edit Form</a>
+        }
+    </div>
+    <div class="Content" id="content">
+        <div id="GeneralInfo" class="Section" linktext="General Info">
+            <div class="Header">
+                General Information
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Log Date
+                </div>
+                <div class="Input">
+                    @Model.CreateDate.ToString("hh:mm tt MM/dd/yyyy")
+                    @Html.HiddenFor(m => m.FormID)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Created By:
+                </div>
+                <div class="Input">
+                    @(Model.CreateUser.FirstName + " " + Model.CreateUser.LastName)
+                </div>
+            </div>
+            @if (Model.CreateUser.UserName != Model.Alerts.DISP && Model.LoggingUser != null)
+            {
+                <div class="Field">
+                    <div class="Label">
+                        Logged By:
+                    </div>
+                    <div class="Input">
+                        @(Model.LoggingUser.FirstName + " " + Model.LoggingUser.LastName)
+                    </div>
+                </div>
+            }
+            <div class="Field">
+                <div class="Label">
+                    County
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.County)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Unit #
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Unit)
+                </div>
+            </div>
+        </div>
+        <div id="ComplainantInfo" class="Section" linktext="Complainant Info">
+            <div class="Header">
+                Complainant Information
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Age
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.Age) &nbsp; @Html.DisplayFor(x => x.InitialCondition.AgeType)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Sex
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.Gender)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    A&O X
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.A_OX, new { @class = "textbox" })
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Chief Complaint
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.ChiefComplaint, new { @class = "textbox" })
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Blood Pressure
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.BP1.Systolic, new { @class = "BP" })
+                    /
+                    @Html.DisplayFor(m => m.InitialCondition.BP1.Diastolic, new { @class = "BP" })
+                </div>
+                @if (Model.InitialCondition.BP2.Diastolic > 0 || Model.InitialCondition.BP2.Systolic > 0)
+                {
+                    <span class="Seperator">|</span>
+                    <div class="Input">
+                        @Html.DisplayFor(m => m.InitialCondition.BP2.Systolic, new { @class = "BP" })
+                        /
+                        @Html.DisplayFor(m => m.InitialCondition.BP2.Diastolic, new { @class = "BP" })
+                    </div>
+                }
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Pulse
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.Pulse1, new { @class = "textbox short" })
+                    <span class="Seperator">|</span>
+                    @Html.DisplayFor(m => m.InitialCondition.Pulse2, new { @class = "textbox short" })
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Respirations
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.Resp1, new { @class = "textbox short" })
+                    <span class="Seperator">|</span>
+                    @Html.DisplayFor(m => m.InitialCondition.Resp2, new { @class = "textbox short" })
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    O2 Saturation
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.InitialCondition.O2Sat, new { @class = "textbox short" })%
+                    <span class="Seperator">|</span>
+                    @Html.DisplayFor(m => m.InitialCondition.O2Sat2, new { @class = "textbox short" })%
+                </div>
+            </div>
+        </div>
+        <div id="CrashInfo" class="Section" linktext="Crash Info">
+            <div class="Header">
+                Crash Information
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Driver
+                </div>
+                <div class="Input">
+                   @Html.DisplayFor(m=>m.CrashInformation.DriverRestrained)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Passeneger
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.CrashInformation.PassengerRestrained)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    Speed
+                </div>
+                <div class="Input">
+                    <input class="textbox" />
+                </div>
+            </div>
+            <div class="Field" style="">
+                <div class="Label">
+                    Condition
+                </div>
+                <div class="Input" style="display: inline">
+                    @if (Model.CrashInformation.Ejected)
+                    {<span>
+                        @Html.LabelFor(m => m.CrashInformation.Ejected)
+                        ,</span>
+                    }
+                    @if (Model.CrashInformation.Entrapped)
+                    {<span>
+                        @Html.LabelFor(m => m.CrashInformation.Entrapped), </span>
+                    }
+                    @if (Model.CrashInformation.Rollover)
+                    {
+                        <span>
+                            @Html.LabelFor(m => m.CrashInformation.Rollover), </span> 
+                    }
+                    @if (Model.CrashInformation.HasHelmet)
+                    {<span>
+                        @Html.LabelFor(m => m.CrashInformation.HasHelmet), </span>
+                    }
+                    @if (Model.CrashInformation.AirbagDeployed)
+                    { <span>
+                        @Html.LabelFor(m => m.CrashInformation.AirbagDeployed), </span>}
+                    @if (Model.CrashInformation.isPackaged)
+                    {<span>
+                        @Html.LabelFor(m => m.CrashInformation.isPackaged)</span> }
+                </div>
+            </div>
+        </div>
+        <div id="Alerts" class="Section" linktext="Alerts">
+            <div class="Header">
+                Alerts
+            </div>
+            @if (Model.Alerts.TraumaAlert == true)
+            {
+                <div class="Field">
+                    <div class="Label">
+                        @Html.LabelFor(m => m.Alerts.TraumaAlert)
+                    </div>
+                    <div class="Input bold">
+                        YES
+                    </div>
+                </div>
+            }
+            @if (Model.Alerts.StrokeAlert == true)
+            {
+        
+                <div class="Field">
+                    <div class="Label">
+                        @Html.LabelFor(m => m.Alerts.StrokeAlert)
+                    </div>
+                    <div class="Input">
+                        @Html.DisplayFor(m => m.Alerts.StrokeAlert)
+                    </div>
+                </div>
+            }
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.onSet)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Alerts.onSet)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.STEMI)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Alerts.STEMI)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.TIBR)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Alerts.TIBR)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.History)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Alerts.History)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.Treatment)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(x => x.Alerts.Treatment)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.DISP)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Alerts.DISP)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.Notified)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Alerts.Notified)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.Alerts.ETA)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.Alerts.ETA)
+                </div>
+            </div>
+        </div>
+        <div id="MedicalDetail" class="Section" linktext="Medical Detail">
+            <div class="Header">
+                Medical Details
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalDetail.Detail)
+                </div>
+                <div class="Input">
+                    @Html.TextAreaFor(m => m.MedicalDetail.Detail, new { @class = "textbox" })
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalDetail.Level)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.MedicalDetail.Level)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalDetail.TC_ER__PEDS)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.MedicalDetail.TC_ER__PEDS)
+                </div>
+            </div>
+        </div>
+        <div id="MedicalControl" class="Section" linktext="Medical Control">
+            <div class="Header">
+                Medical Controls
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalControl.Rescue)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.MedicalControl.Rescue)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalControl.Meds)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.MedicalControl.Meds)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalControl.DrsSignature)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.MedicalControl.DrsSignature)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalControl.DEANumber)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.MedicalControl.DEANumber)
+                </div>
+            </div>
+            <div class="Field">
+                <div class="Label">
+                    @Html.LabelFor(m => m.MedicalControl.NARC)
+                </div>
+                <div class="Input">
+                    @Html.DisplayFor(m => m.MedicalControl.NARC)
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        $(function () {
+            $('div.Input').each(function () {
+                if ($.trim($(this).text()).length == 0) {
+                    $(this).text("<not provided>");
+                }
+            });
+        });
+    </script>

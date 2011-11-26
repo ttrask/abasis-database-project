@@ -42,7 +42,7 @@ $(function () {
     $.localScroll();
 
 
-    $('#sidebar a').click(function (event) {
+    $('#sidebar #sidebarLinks a').click(function (event) {
         //scroll to section click on in sidebar
         //jQuery.scrollTo.window().queue([]).stop();
 

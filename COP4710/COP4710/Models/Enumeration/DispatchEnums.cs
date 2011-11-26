@@ -19,9 +19,9 @@ namespace COP4710.Models.Enumerations
     public enum Gender
     {
         [Display(Name = "Male")]
-        Male,
+        Male ,
         [Display(Name = "Female")]
-        Female,
+        Female ,
         [Display(Name = "Unknown")]
         Unknown
     }
@@ -70,6 +70,22 @@ namespace COP4710.Models.Enumerations
 
     }
 
+    public enum Category
+    {
+        MVC,
+        FALL,
+        OB,
+        MEDICAL,
+        CARDIAC,
+        ASSAULT,
+        SPORTS,
+        MCC,
+        TRAUMA,
+        GSW,
+        BURN,
+        OTHER
+    }
+
 
     public enum History
     {
@@ -89,5 +105,9 @@ namespace COP4710.Models.Enumerations
         Duval ,
         Clay , 
         Nassau 
+    }
+
+    public enum Level
+    {
     }
 }

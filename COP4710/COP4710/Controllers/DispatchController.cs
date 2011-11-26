@@ -1,30 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using COP4710.Models;
 using COP4710.Models.Enumerations;
 using COP4710.DataAccess;
+using COP4710.Attributes;
 
 namespace COP4710.Controllers
 {
+    [Authorization]
     public class DispatchController : Controller
     {
         //
         // GET: /Dispatch/
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(DispatchDAO.List());
+            if (page.HasValue)
+            {
+                ViewBag.Page = page;
+                return View(DispatchDAO.List(page.Value));
+            }
+            else
+            {
+                ViewBag.Page = page;
+                Boolean disablePaging = false;
+                Boolean.TryParse(ConfigurationManager.AppSettings["DisablePaging"].ToString(), out disablePaging);
+
+                if (disablePaging == false)
+                    return RedirectToAction("Index", new { @page = 0 });
+                else
+                    return View(DispatchDAO.List());
+            }
         }
+
+
+
 
         //
         // GET: /Dispatch/Details/5
 
         public ActionResult Details(int id)
         {
-            return View();
+            DispatchModel dispatch = DispatchDAO.GetDispatchByID(id);
+
+            if (dispatch != null)
+                return View(dispatch);
+            else
+                return RedirectToAction("index");
         }
 
         //
@@ -33,7 +59,7 @@ namespace COP4710.Controllers
         public ActionResult Create()
         {
             return View(new DispatchModel());
-        } 
+        }
 
         //
         // POST: /Dispatch/Create
@@ -41,27 +67,27 @@ namespace COP4710.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-
             try
             {
                 DispatchModel form = new DispatchModel();
 
-                TryUpdateModel<DispatchModel>(form , collection.ToValueProvider());
+                TryUpdateModel<DispatchModel>(form, collection.ToValueProvider());
 
                 int rowsAffected = DispatchDAO.Insert(form);
 
                 return RedirectToAction("Index");
-        
+
             }
             catch
             {
                 return RedirectToAction("Create");
             }
         }
-        
+
         //
         // GET: /Dispatch/Edit/5
- 
+
+        [Authorization(UserRole = AccountType.Administrator)]
         public ActionResult Edit(int id)
         {
             if (id > 0)
@@ -73,6 +99,7 @@ namespace COP4710.Controllers
         //
         // POST: /Dispatch/Edit/5
 
+
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -80,7 +107,7 @@ namespace COP4710.Controllers
 
             try
             {
-                
+
                 TryUpdateModel<DispatchModel>(form, collection.ToValueProvider());
 
                 int rowsAffected = DispatchDAO.UpdateForm(form);
@@ -98,10 +125,10 @@ namespace COP4710.Controllers
             {
                 return RedirectToAction("Index");
             }
- 
+
         }
 
-     
+
 
         public List<SelectListItem> ListETA()
         {
@@ -109,7 +136,7 @@ namespace COP4710.Controllers
 
             for (int i = 0; i <= 60; i++)
             {
-                list.Add(new SelectListItem(){ Text=i.ToString(), Value=i.ToString()});
+                list.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString() });
             }
 
             return list;

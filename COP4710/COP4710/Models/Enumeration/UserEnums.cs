@@ -7,6 +7,8 @@ using System.Web.Security;
 
 namespace COP4710.Models.Enumerations
 {
+    [Serializable]
+    [Flags]
     public enum AccountType
     {
         Dispatcher = 1,

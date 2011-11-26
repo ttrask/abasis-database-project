@@ -28,7 +28,10 @@ namespace COP4710.Models
 
         public int O2Sat2 { get; set; }
 
+        public Category Category { get; set; }
+
         public string ChiefComplaint { get; set; }
+
 
         public Boolean LossOfConciousness { get; set; }
 
@@ -41,5 +44,11 @@ namespace COP4710.Models
         public int BLG1 { get; set; }
 
         public int BLG2 { get; set; }
+
+        public InitialDiagnosisModel()
+        {
+            BP1 = new BloodPressure();
+            BP2 = new BloodPressure();
+        }
     }
 }

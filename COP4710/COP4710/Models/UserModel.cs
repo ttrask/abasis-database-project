@@ -25,11 +25,23 @@ namespace COP4710.Models
 
         [Required]
         [Display(Name = "First Name")]
+        
         public string FirstName { get; set; }
 
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string FullName
+        {
+            get
+            {
+                return this.FirstName.Trim() + " " + this.LastName.Trim();
+            }
+        }
 
         [Required]
         [Display(Name = "Is Active")]

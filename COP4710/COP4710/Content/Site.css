@@ -1,6 +1,8 @@
-﻿/*
+﻿
+/*
 Base Universal Style
 */
+
 
 body
 {
@@ -145,7 +147,7 @@ div#sidebar #dvSelector
     right: -10px;
     top: 5px;
     border-bottom: 2px solid transparent;
-    border-left: 2px solid green;
+    border-left: 2px solid #3ABC47;
     border-top: 2px solid transparent;
     height: 0;
     width: 10;
@@ -181,6 +183,7 @@ div#sidebar #Submit, .Submit
     background-color: White;
     font-weight: bolder;
     padding:0 10px;
+    cursor:pointer;
     text-transform:uppercase;
     font-size: 20pt;
     font-weight:normal !important;
@@ -217,7 +220,7 @@ div.Content .Section .Header, #login .Header
     border-bottom: 2px solid black;
     font-size: 24pt;
     font-weight: bold;
-    padding-top: 1.5em;
+    padding-top: .5em;
 }
 
 div.Content .Section:first-child .Header
@@ -229,8 +232,8 @@ div.Content .Section .Field, #login .Field
 {
     position: relative;
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 5px;
+    padding: 5px;
 }
 
 div.Content .Section .Field > div, #login .Field > div
@@ -241,7 +244,7 @@ div.Content .Section .Field > div, #login .Field > div
 div.Content .Section .Field .Label, #login .Field .Label
 {
     font-weight: bold;
-    font-size: 18pt;
+    font-size: 1.4em;
     width: 200px;
     vertical-align: top;
     display: inline-block;
@@ -391,3 +394,117 @@ td.selectable
 {
     margin:3px;
 }
+
+
+#Submit.Submit:hover
+{
+    background-color:#3ABC47;
+}
+
+#Edit.Submit:hover
+{
+    background-color:yellow;
+}
+
+#Back.Submit:hover
+{
+    background-color:#C45656;
+    color:White;
+    
+}
+
+#Back.Submit
+{
+    width:100% ;
+}
+
+
+.MenuItem
+{
+    padding:5px;
+    margin:15px;
+    font-size:1.2em;
+    font-weight:bold;   
+    cursor:pointer;
+    display:inline-block;
+    
+}
+
+.MenuItem
+{
+    border-left:2px solid black;
+}
+
+.MenuItemfirst-child
+{
+    border-left:0px solid white;
+}
+
+.MenuItem a
+{
+    text-decoration:none;
+}
+
+.MenuItem#Users:hover
+{
+    color:White;
+    background-color:#C45656;
+}
+
+.MenuItem#Forms:hover
+{
+    color:White;
+    background-color:#66C9FF;
+}
+.MenuItem#Reports:hover
+{
+    color:White;
+    background-color:#3ABC47;
+}
+
+   .ListItem
+    {
+        width: 100%;
+        font-size: 1.2em;
+        padding: 3px;
+        background-color: #ddd;
+        border: 2px solid black;
+        margin: 4px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    
+    .ListItem .left
+    {
+        width: auto;
+        float: left;
+    }
+    
+    .ListItem .right
+    {
+        width: auto;
+        float: right;
+    }
+    
+    .ListItem:hover
+    {
+        background-color: #aaa;
+    }
+    
+    .Submit:hover
+    {
+        background-color:#5BFCFF;
+    }
+    
+    .Submit.Small, .Link
+    {
+        padding:0px;
+        font-size:.8em;
+        border:none;
+        border-bottom:2px solid;
+    }
+    
+    .Reports .Link 
+    {
+        border-color:#3ABC47;
+    }

@@ -11,7 +11,7 @@ namespace COP4710.Models
 {
     public class AlertsModel
     {
-        private string onset;
+        private string onset ="";
 
         [Display(Name = "Trauma Alert")]
         public Boolean TraumaAlert { get; set; }
@@ -32,7 +32,7 @@ namespace COP4710.Models
                     onset = value;
                 else
                 {
-                    onset = null;
+                    onset = "";
                 }
             }
         }

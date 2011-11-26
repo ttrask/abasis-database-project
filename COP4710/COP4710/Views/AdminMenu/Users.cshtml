@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+@using COP4710.Models;
+@using COP4710.Models.Enumerations;
+
+@if (Session["CurrentUser"] != null && ((UserModel)Session["CurrentUser"]).AccountType == AccountType.Administrator)
+{
+    <div class="MenuItem" id="Users">
+            @Html.ActionLink("Users", "Index", "User", null, new {})
+    </div>
+}

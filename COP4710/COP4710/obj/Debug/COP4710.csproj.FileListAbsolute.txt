@@ -26,28 +26,6 @@ E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\EntityFramew
 E:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
 E:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.dll
 E:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.pdb
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Abstractions.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.ApplicationServices.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.DynamicData.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Entity.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Extensions.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Helpers.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Mvc.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Routing.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Services.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.WebPages.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Xml.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Xml.Linq.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Mvc.xml
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.WebPages.xml
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Helpers.xml
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Razor.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.Razor.xml
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.WebPages.Deployment.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\System.Web.WebPages.Razor.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\Microsoft.Web.Infrastructure.dll
-E:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\Microsoft.Web.Infrastructure.xml
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\COP4710.dll
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\COP4710.pdb
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\EntityFramework.dll
@@ -55,10 +33,3 @@ H:\School\Database\Site\abasis-database-project\COP4710\COP4710\bin\EntityFramew
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.dll
 H:\School\Database\Site\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.pdb
-C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.dll
-C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\COP4710.dll
-C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\COP4710.pdb
-C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\EntityFramework.dll
-C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\bin\EntityFramework.xml
-C:\Users\LJ\Dropbox\School\UNF\Fall 2011\COP 4710\Assignments\Final Assignment (Group)\COP4710Project\abasis-database-project\COP4710\COP4710\obj\Debug\COP4710.pdb

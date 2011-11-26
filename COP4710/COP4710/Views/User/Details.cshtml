@@ -1,0 +1,67 @@
+﻿@model COP4710.Models.UserModel
+@{
+    ViewBag.Title = "Details";
+    ViewBag.PageTitle = "User Information";
+}
+<div id="sidebar" class="fixed">
+    <a href="@Url.Action("index")" class="Submit" id="Back"><< Users</a>
+    <br />
+    
+</div>
+<div class="Content">
+    <div class="Section">
+        <div class="Header">
+            @Model.FullName @Html.ActionLink("Edit", "Edit", new { id = Model.UserName }, new { @class = "Submit" })</div>
+        <div class="Field">
+            <div class="Label">
+                @Html.LabelFor(model => model.UserName)</div>
+            <div class="input">
+                @Html.DisplayFor(model => model.UserName)
+            </div>
+        </div>
+        <div class="Field">
+            <div class="Label">
+                @Html.LabelFor(model => model.Password)</div>
+            <div class="input">
+                @Html.DisplayFor(model => model.Password)
+            </div>
+        </div>
+        <div class="Field">
+            <div class="Label">
+                @Html.LabelFor(model => model.FirstName)</div>
+            <div class="input">
+                @Html.DisplayFor(model => model.FirstName)
+            </div>
+        </div>
+        <div class="Field">
+            <div class="Label">
+                @Html.LabelFor(model => model.LastName)</div>
+            <div class="input">
+                @Html.DisplayFor(model => model.LastName)
+            </div>
+        </div>
+        <div class="Field">
+            <div class="Label">
+                @Html.LabelFor(model => model.IsActive)</div>
+            <div class="input">
+                @if (Model.IsActive)
+                {
+                    <span>Yes</span>
+                }
+                else
+                {
+                    <span>No</span>
+                }
+            </div>
+        </div>
+        <div class="Field">
+            <div class="Label">
+                @Html.LabelFor(model => model.AccountType)</div>
+            <div class="input">
+                @Html.DisplayFor(model => model.AccountType)
+            </div>
+        </div>
+        
+        
+    </div>
+</div>

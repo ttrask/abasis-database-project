@@ -24,9 +24,13 @@
             <div style="float: right; display: inline; margin-top:8px">
                 @{Html.RenderAction("AccountBar", "Account", new { });}
             </div>
+
+           
+                @{Html.RenderAction("Menu", "AdminMenu");}
+           
         </div>
         <hr id="pageSeperator" />
-        <div id="">
+        <div >
             @RenderBody()
         </div>
         <div id="footer">

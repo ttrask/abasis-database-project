@@ -24,9 +24,9 @@ namespace COP4710.Controllers
         //
         // GET: /User/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            return View(UserDAO.GetUserByUsername(id));
         }
 
         //
@@ -64,9 +64,9 @@ namespace COP4710.Controllers
         //
         // GET: /User/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            return View(UserDAO.GetUserByUsername(id));
         }
 
         //
@@ -77,9 +77,12 @@ namespace COP4710.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                UserModel user = new UserModel();
+                TryUpdateModel(user, collection.ToValueProvider());
 
-                return RedirectToAction("Index");
+                UserDAO.Update(user);
+
+                return RedirectToAction("Details", new { id = id });
             }
             catch
             {
@@ -121,7 +124,7 @@ namespace COP4710.Controllers
 
             users.ForEach(delegate(UserModel user)
             {
-                userItems.Add(new SelectListItem() { Text = user.FirstName + " " + user.LastName, Value = user.FirstName + " " + user.LastName });
+                userItems.Add(new SelectListItem() { Text = user.FirstName + " " + user.LastName, Value = user.UserName });
             });
 
             return userItems;

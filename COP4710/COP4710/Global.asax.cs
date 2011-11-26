@@ -24,7 +24,7 @@ namespace COP4710
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Dispatch", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }

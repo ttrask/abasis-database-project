@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Sql;
 using System.Data.SqlClient;
-
+using System.Data;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -15,6 +15,7 @@ namespace COP4710.DataAccess
     public static class DispatchDAO
     {
         private static SqlConnection cn;
+
 
         public static int Insert(DispatchModel form)
         {
@@ -53,7 +54,7 @@ namespace COP4710.DataAccess
                 cmd.Parameters.AddWithValue("Resp2", form.InitialCondition.Resp2);
                 cmd.Parameters.AddWithValue("O2Sat", form.InitialCondition.O2Sat);
                 cmd.Parameters.AddWithValue("O2Sat2", form.InitialCondition.O2Sat2);
-                cmd.Parameters.AddWithValue("Category", null);
+                cmd.Parameters.AddWithValue("Category", form.InitialCondition.Category);
                 cmd.Parameters.AddWithValue("CC", form.InitialCondition.ChiefComplaint);
                 cmd.Parameters.AddWithValue("LOC", form.InitialCondition.LossOfConciousness);
                 cmd.Parameters.AddWithValue("GCS", form.InitialCondition.GSC1);
@@ -73,7 +74,7 @@ namespace COP4710.DataAccess
                 cmd.Parameters.AddWithValue("Onset", form.Alerts.onSet);
                 cmd.Parameters.AddWithValue("Stemi", form.Alerts.STEMI);
                 cmd.Parameters.AddWithValue("TIBR", form.Alerts.TIBR);
-                cmd.Parameters.AddWithValue("Dispatcher", form.Alerts.DISP.Trim());
+                cmd.Parameters.AddWithValue("Dispatcher", form.Alerts.DISP);
                 cmd.Parameters.AddWithValue("History", form.Alerts.History);
                 cmd.Parameters.AddWithValue("Treatment", form.Alerts.Treatment);
                 cmd.Parameters.AddWithValue("Notified", form.Alerts.Notified);
@@ -84,7 +85,7 @@ namespace COP4710.DataAccess
                 cmd.Parameters.AddWithValue("DEANumber", form.MedicalControl.DEANumber);
                 cmd.Parameters.AddWithValue("Narc", form.MedicalControl.NARC);
                 cmd.Parameters.AddWithValue("Detail", form.MedicalDetail.Detail);
-                cmd.Parameters.AddWithValue("Level", form.MedicalDetail.Level);
+                cmd.Parameters.AddWithValue("Level", String.IsNullOrEmpty(form.MedicalDetail.Level) ? null: form.MedicalDetail.Level);
                 cmd.Parameters.AddWithValue("Destination", form.MedicalDetail.TC_ER__PEDS);
 
 
@@ -144,7 +145,7 @@ namespace COP4710.DataAccess
                 cmd.Parameters.AddWithValue("Resp2", form.InitialCondition.Resp2);
                 cmd.Parameters.AddWithValue("O2Sat", form.InitialCondition.O2Sat);
                 cmd.Parameters.AddWithValue("O2Sat2", form.InitialCondition.O2Sat2);
-                cmd.Parameters.AddWithValue("Category", null);
+                cmd.Parameters.AddWithValue("Category", form.InitialCondition.Category);
                 cmd.Parameters.AddWithValue("CC", form.InitialCondition.ChiefComplaint);
                 cmd.Parameters.AddWithValue("LOC", form.InitialCondition.LossOfConciousness);
                 cmd.Parameters.AddWithValue("GCS", form.InitialCondition.GSC1);
@@ -233,6 +234,14 @@ namespace COP4710.DataAccess
                     form.CreateDate = DateTime.Parse(reader["CreateDate"].ToString());
                     form.Unit = Int32.Parse(reader["UnitNumber"].ToString());
                     form.County = (County)Enum.Parse(typeof(County), reader["County"].ToString());
+
+                    string disp = reader["DISP"].ToString();
+
+                    if (!String.IsNullOrEmpty(disp))
+                    {
+                        form.LoggingUser = UserDAO.GetUserByUsername(disp);
+                    }
+
                     form.InitialCondition = new InitialDiagnosisModel();
 
 
@@ -315,6 +324,11 @@ namespace COP4710.DataAccess
 
         public static List<DispatchModel> List()
         {
+            return List(-1);
+        }
+
+        public static List<DispatchModel> List(int page)
+        {
             if (cn == null)
             {
                 cn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["ConnectionString"]);
@@ -333,6 +347,12 @@ namespace COP4710.DataAccess
                 SqlCommand cmd = new SqlCommand("ListForms", cn, tn);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                if (page >= 0)
+                {
+                    cmd.Parameters.AddWithValue("Page", page);
+                    cmd.Parameters.AddWithValue("PageSize", System.Configuration.ConfigurationManager.AppSettings["PageSize"]);
+                }
 
                 SqlDataReader reader = cmd.ExecuteReader();
 

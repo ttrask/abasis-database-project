@@ -9,18 +9,19 @@ using COP4710.Models.Enumerations;
 
 namespace COP4710.Models
 {
+
     public class DispatchModel
     {
 
         public int FormID{ get; set;}
 
-        [Required(ErrorMessage = "This field is required")]
+        [Required]
         public UserModel CreateUser { get; set; }
 
-        [Required(ErrorMessage = "This field is required")]
+        [Required]
         public DateTime CreateDate { get; set; }
 
-        [Required(ErrorMessage = "This field is required")]
+        [Required]
         public int Unit { get; set; }
 
         [Required]
@@ -31,6 +32,10 @@ namespace COP4710.Models
         public InitialDiagnosisModel InitialCondition { get; set; }
         public MedicalDetailModel MedicalDetail { get; set; }
         public MedicalControlModel MedicalControl { get; set; }
+
+
+        [Required]
+        public UserModel LoggingUser { get; set; }
 
         public DispatchModel()
         {

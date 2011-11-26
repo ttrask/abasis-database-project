@@ -1,57 +1,27 @@
 ﻿@model IEnumerable<COP4710.Models.UserModel>
 @{
     ViewBag.Title = "Index";
+    ViewBag.PageTitle = "Users";
 }
-<h2>
-    Index</h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div class="ListView">
-    @foreach (var item in Model)
+@using COP4710.Models;
+
+
+<div id="sidebar" class="fixed">
+    <a href="@Url.Action("Create")" class="Submit">New User</a>
+</div>
+<div class="Content">
+    @foreach (UserModel item in Model)
     {
-        <div class="ListViewItem">
-            <div class="Header">
-                <div style="float: left;">@Html.DisplayFor(modelItem => item.FirstName)
-                    @Html.DisplayFor(modelItem => item.LastName)</div>
+        <a href="@Url.Action("Details", new { id = item.UserName.Trim() })" style="display:block;">
+            <div class="ListItem">
+                <div class="left">
+                    @item.FullName </div>
+                <div class="right">@item.AccountType</div>
             </div>
-            <div class="Detail">
-                <table>
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.UserName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Password)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IsActive)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        </a> 
     }
 </div>
-<style type="text/css">
-    .ListView .Header
-    {
-        color: White;
-        background-color: Black;
-        font-size: 1.5em;
-        cursor: pointer;
-    }
-    
-    .ListView .Detail
-    {
-        display: none;
-    }
-</style>
+
 <script type="text/javascript">
 
     $(function () {

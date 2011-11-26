@@ -58,6 +58,46 @@ namespace COP4710.DataAccess
             return -1;
         }
 
+        public static int Update(UserModel user)
+        {
+            if (cn == null)
+            {
+                cn = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["ConnectionString"]);
+
+            }
+
+            try
+            {
+
+                cn.Open();
+
+                SqlTransaction tn = (SqlTransaction)cn.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted);
+
+                SqlCommand cmd = new SqlCommand("UpdateUser", cn, tn);
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("Username", user.UserName);
+                cmd.Parameters.AddWithValue("Password", user.Password);
+                cmd.Parameters.AddWithValue("Firstname", user.FirstName);
+                cmd.Parameters.AddWithValue("Lastname", user.LastName);
+                cmd.Parameters.AddWithValue("IsActive", user.IsActive);
+                cmd.Parameters.AddWithValue("AccountType", user.AccountType);
+
+                return cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                //implement error logging
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return -1;
+        }
+
         #endregion
 
         #region List
@@ -135,7 +175,7 @@ namespace COP4710.DataAccess
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("Username", username);
-                cmd.Parameters.AddWithValue("Password", username);
+                cmd.Parameters.AddWithValue("Password", password);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 

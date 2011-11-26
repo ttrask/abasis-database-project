@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "403";
+    ViewBag.PageTitle = "Access Denied";
+}
+<div class="Header">
+    403: Unauthorized Access
+</div>
+<div class="Subject">
+    You are not authorized to view the page you requested. This can be caused by either:
+    <ul>
+        <li>You are not logged in.</li>
+        <li>You followed a link that you weren't supposed to have </li>
+        <li>Someone's playing a cruel trick on you.</li>
+    </ul>
+    If you'd like to do more work, you'll need to <span class="bold">log back in.</span>
+    <p />@Html.ActionLink("Log Back In", "Logon", "Account", null, new { @class = "Submit" })
+</div>
+
+<style type="text/css">
+    div
+    {
+        display:block !important;
+    }
+.Header
+{
+    font-size:1.5em;
+    font-weight:bold;
+    padding-bottom:4px;
+}
+
+.Subject
+{
+    text-align:justify;
+}
+
+.bold
+{
+    font-weight:bolder;
+    font-size:1.2em;
+}
+
+</style>

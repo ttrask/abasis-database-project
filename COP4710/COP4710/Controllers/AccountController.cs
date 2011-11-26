@@ -31,19 +31,31 @@ namespace COP4710.Controllers
 
             UserModel user = UserDAO.AuthenticateUser(model.UserName, model.Password);
 
+            //UserModel user = new UserModel()
+            //{
+            //    UserName = "ttrask",
+            //    Password = "iamtom",
+            //    FirstName = "Thomas",
+            //    LastName = "Trask",
+            //    AccountType = Models.Enumerations.AccountType.Administrator
+
+            //};
+
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(user.UserName, true);
-                Session["CurrentUser"] = user;
-                return RedirectToAction("Dispatch", "Index");
-            }
-            else
-            {
-                return View();
-            }
-            
+                Session.Add("CurrentUser", user);
+                Session.Add("role", user.AccountType);
 
-            
+                if (String.IsNullOrEmpty(returnUrl))
+                    return RedirectToAction("Index", "Dispatch");
+                else
+                    return Redirect(returnUrl);
+            }
+        
+            return View();
+
+
         }
 
         //
